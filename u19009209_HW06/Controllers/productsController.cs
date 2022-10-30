@@ -146,7 +146,7 @@ namespace u19009209_HW06.Controllers
                 product product = db.products.Find(id);
                 db.products.Remove(product);
                 db.SaveChanges();
-                message = "200 Ok";
+                message = "Success";
             }
             catch (Exception ex)
             {

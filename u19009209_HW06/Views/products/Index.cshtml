@@ -282,7 +282,7 @@ new { page, currentFilter = ViewBag.CurrentFilter }))
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+                <button type="button" class="btn btn-danger" onclick="DeleteConfirmed()">Delete</button>
             </div>
         </div>
     </div>
@@ -507,6 +507,7 @@ new { page, currentFilter = ViewBag.CurrentFilter }))
                     console.log(error);
                 }
             });
+
         }
         function confirmDelete() {
             $.ajax({
