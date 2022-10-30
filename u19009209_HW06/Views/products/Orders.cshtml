@@ -1,7 +1,59 @@
-﻿
+﻿@model IEnumerable<u19009209_HW06.Models.product>
 @{
     ViewBag.Title = "Orders";
 }
 
 <h2>Orders</h2>
 
+@using (Html.BeginForm("Orders", "Products", FormMethod.Get))
+{
+    <div class="container-fluid">
+        <div class="row">
+            <div class="form-group col-lg-12">
+                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control", placeholder = "Enter Product Name..." })
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+}
+
+<h1></h1>
+
+<table class="table">
+    <tr>
+        <th>
+            Product Name
+        </th>
+        <th>
+            List Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Brand
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.list_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_items.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.list_price * item.order_items.quantity)
+            </td>
+        </tr>
+    }
+</table>
+<label>Grand Total: </label>
